@@ -68,7 +68,7 @@ router.put("/:id", passport.authenticate("user", { session: false }), async (req
   try {
     const obj = req.body;
 
-    const user = await UserObject.findByIdAndUpdate(req.params.id, obj, { new: true });
+    const user = await UserObject.findByIdAndUpdate({ _id: req.params.id }, obj, { new: true });
     res.status(200).send({ ok: true, user });
   } catch (error) {
     console.log(error);
