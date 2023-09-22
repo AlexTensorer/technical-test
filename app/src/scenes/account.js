@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
+
 
 import "react-tagsinput/react-tagsinput.css";
 import Loader from "../components/loader";
@@ -19,6 +21,7 @@ export default () => {
   });
   const dispatch = useDispatch();
   if (!user) return <Loader />;
+  const history = useHistory();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -28,6 +31,7 @@ export default () => {
       const responseData = await api.put(`/user/${user._id}`, body);
       toast.success("Updated!");
       dispatch(setUser(responseData.user));
+      history.push("/")
     } catch (e) {
       console.log(e);
       toast.error("Some Error!");
