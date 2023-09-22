@@ -37,7 +37,15 @@ Time to be creative, and efficient. Do what you think would be the best for your
 ## Finally
 
 Send us the project and answer to those simple questions : 
-- What bugs did you find ? How did you solve these and why ? 
+- What bugs did you find ? How did you solve these and why ?
+  &rarr; toString() removed in app/src/scences/project/view.js. This fix allowed project creation.
+  &rarr; findOne added in api/src/controllers/project.js. MongoDB's find method will an array and an empty one if nothing exists. findOne is more precise and allowed edit of project via id instead of returning /project/edit/undefined in the URL.
+  &rarr; Added projetName in activites for the message "What did you deliver on *projectName*".
+  &rarr; onChange changed to onClick to allow submission of the edit project form.
+  &rarr; Username was disabled, enabled it so we can see Usernames on people component.
+  &rarr; Fixed redirect when editing a user in people component.
+  &rarr; Fixed redirect when editing a account details.
+  
 - Which feature did you develop and why ? 
 - Do you have any feedback about the code / architecture of the project and what was the difficulty you encountered while doing it ? 
 
