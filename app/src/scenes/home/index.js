@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import api from "../../services/api";
+import ToDoList from "../../components/toDoList";
 
 const Home = () => {
   const [availableUsers, setAvailableUsers] = useState();
@@ -28,6 +29,9 @@ const Home = () => {
           </div>
         ))}
         {availableUsers?.length === 0 ? <span className="italic text-gray-600">No available users.</span> : null}
+      </div>
+      <div className="flex-1 mb-[10px]">
+        <ToDoList />
       </div>
     </div>
   );
